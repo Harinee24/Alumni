@@ -4,9 +4,10 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
-const userRoutes = require('./routes/userRoutes');
-const messageRoutes = require('./routes/messageRoutes'); // Import message routes
-const jobRoutes = require('./routes/jobRoutes'); // Import job routes
+const userRoutes = require('./routes/userRoutes');  // Import user routes for login and registration
+const messageRoutes = require('./routes/messageRoutes');  // Import message routes
+const jobRoutes = require('./routes/jobRoutes');  // Import job routes
+const User = require('./models/User');  // Import the User model
 
 // Load environment variables
 dotenv.config();
@@ -16,9 +17,9 @@ const app = express();
 
 // CORS Middleware Configuration
 app.use(cors({
-  origin: 'http://localhost:3000',  // Replace this with the URL of your React app
-  methods: ['GET', 'POST'],
-  credentials: true,  // Allow cookies to be sent with requests
+  origin: 'http://localhost:3000',  // React app's origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Allow methods including PUT
+  credentials: true,  // Allow credentials (cookies, sessions)
 }));
 
 // Middleware
@@ -38,7 +39,7 @@ app.use(session({
 }));
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/alumnisphere', {
+mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/alumni-database', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
@@ -49,6 +50,38 @@ mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/alumnispher
 app.use('/api/auth', userRoutes);  // Authentication routes
 app.use('/api/messages', messageRoutes);  // Messages routes
 app.use('/api/jobs', jobRoutes);  // Job routes
+
+// Profile update route
+app.put('/api/auth/profile', async (req, res) => {
+  const { userId, preferredJobLocation, knownSkills, experienceInYear } = req.body;
+
+  // Validate if userId is provided
+  if (!userId) {
+    return res.status(400).json({ message: 'User ID is required' });
+  }
+
+  try {
+    // Find the user by ID
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Update the user profile
+    user.preferredJobLocation = preferredJobLocation || user.preferredJobLocation;
+    user.knownSkills = knownSkills || user.knownSkills;
+    user.experienceInYear = experienceInYear || user.experienceInYear;
+
+    // Save the updated user
+    await user.save();
+
+    res.status(200).json({ message: 'Profile updated successfully', user });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Failed to update profile' });
+  }
+});
 
 // Default route
 app.get('/', (req, res) => {

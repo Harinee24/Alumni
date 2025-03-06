@@ -1,3 +1,4 @@
+// server/models/User.js
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
@@ -7,6 +8,9 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   role: { type: String, required: true },
+  preferredJobLocation: { type: String, default: '' },
+  knownSkills: { type: [String], default: [] },  // Array of skills
+  experienceInYears: { type: Number, default: 0 },
 });
 
 const User = mongoose.model('User', userSchema);
