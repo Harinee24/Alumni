@@ -20,12 +20,12 @@ const Dashboard = () => {
 
   // Sample Success Stories
   const alumni = [
-    { name: 'John Doe', story: 'John launched his own tech startup after graduation.' },
-    { name: 'Jane Smith', story: 'Jane became a renowned scientist in her field.' },
-    { name: 'Mike Johnson', story: 'Mike is working as a CTO at a Fortune 500 company.' },
-    { name: 'Emily Davis', story: 'Emily is a successful entrepreneur who owns multiple businesses.' },
-    { name: 'Chris Lee', story: 'Chris is a philanthropist and a leader in the NGO sector.' }
+    { name: 'John Doe', story: 'John launched his own tech startup after graduation.', profileImage: 'john.png' },
+    { name: 'Jane Smith', story: 'Jane became a renowned scientist in her field.', profileImage: 'jane.png' },
+    { name: 'Mike John', story: 'Mike is working as a CTO at a Fortune 500 company.', profileImage: 'mike.png' },
+    { name: 'Emily Davis', story: 'Emily is a successful entrepreneur who owns multiple businesses.', profileImage: 'emily.png' }
   ];
+  
 
   // Navigate to the Discussion page
   const navigateToDiscussion = () => {
@@ -70,8 +70,12 @@ const Dashboard = () => {
       <section className="achievements">
         <h2>Achievements of VIT</h2>
         <div className="achievement">
-          <img src="path_to_image.jpg" alt="VIT Achievement" />
+          <img src="vitachiev.png" alt="VIT Achievement" width="30px" height="220px" />
           <p>VIT has been ranked among the top universities in India, known for its excellence in education.</p>
+        </div>
+        <div className="achievement">
+          <img src="vitachi.png" alt="VIT Achievement 2" width="30px" height="220px" />
+          <p>VIT has been recognized globally for its innovative research and academic programs.</p>
         </div>
       </section>
 
@@ -80,7 +84,7 @@ const Dashboard = () => {
         <h2>Success Stories</h2>
         {alumni.map((alumnus, index) => (
           <div key={index} className="story">
-            <img src="path_to_alumni_image.jpg" alt={alumnus.name} />
+            <img src={process.env.PUBLIC_URL + (alumnus.profileImage || 'john.png')} alt={alumnus.name} />
             <h3>{alumnus.name}</h3>
             <p>{alumnus.story}</p>
           </div>
@@ -88,13 +92,14 @@ const Dashboard = () => {
       </section>
 
       {/* Media Gallery Section */}
+      <h2><center>Media Gallery</center></h2>
       <section className="media-gallery">
-        <h2>Media Gallery</h2>
+        
         <div className="gallery">
-          <img src="path_to_image1.jpg" alt="Media 1" />
-          <img src="path_to_image2.jpg" alt="Media 2" />
-          <img src="path_to_image3.jpg" alt="Media 3" />
-          <img src="path_to_image4.jpg" alt="Media 4" />
+          <img src="mg1.png" alt="Media 1" width="100px" height="100px"/>
+          <img src="mg2.png" alt="Media 2" width="100px" height="100px"/><br></br>
+          <img src="mg3.png" alt="Media 3" width="100px" height="100px"/>
+          <img src="mg4.png" alt="Media 4" width="100px" height="100px"/>
         </div>
       </section>
 

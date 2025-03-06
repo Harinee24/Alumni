@@ -9,23 +9,24 @@ const Discussion = () => {
   const [loading, setLoading] = useState(false);
 
   // Fetch messages on component load
-  useEffect(() => {
-    const fetchMessages = async () => {
-      setLoading(true);
-      try {
-        const response = await axios.get('http://localhost:5000/api/messages', { withCredentials: true });
-        setMessages(response.data);
-      } catch (error) {
-        setError('Failed to fetch messages');
-      } finally {
-        setLoading(false);
-      }
-    };
+  const fetchMessages = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.get('http://localhost:5000/api/messages', { withCredentials: true });
+      setMessages(response.data);
+    } catch (error) {
+      setError('Failed to fetch messages');
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  // Initial message fetch when component loads
+  useEffect(() => {
     fetchMessages();
   }, []);
 
-  // Send a new message
+  // Send a new message and refresh the messages list
   const handleSendMessage = async (e) => {
     e.preventDefault();
 
@@ -34,13 +35,15 @@ const Discussion = () => {
     setLoading(true); // Show loading indicator
 
     try {
-      const response = await axios.post(
+      // Send the new message to the server
+      await axios.post(
         'http://localhost:5000/api/messages',
         { content: newMessage },
         { withCredentials: true }
       );
-      setMessages([response.data, ...messages]); // Add the new message at the top
       setNewMessage(''); // Clear input field
+      // Refresh all messages after sending the new one
+      fetchMessages(); // Re-fetch all messages after sending
     } catch (error) {
       setError('Failed to send message');
     } finally {
@@ -50,7 +53,7 @@ const Discussion = () => {
 
   return (
     <div className="discussion-container">
-      {/* Discussion Forum Navbar */}
+      {/* Navbar */}
       <nav className="navbar">
         <div className="logo">AlumniSphere</div>
         <div className="nav-links">
@@ -59,6 +62,12 @@ const Discussion = () => {
         </div>
       </nav>
 
+      {/* Hero Section */}
+      <section className="hero-section">
+        <h1>Welcome to the Discussion Forum</h1>
+      </section>
+
+      {/* Discussion Messages Section */}
       <div className="messages">
         <h2>Discussion Forum</h2>
         {error && <p className="error-message">{error}</p>}
@@ -86,7 +95,7 @@ const Discussion = () => {
             placeholder="Write a message..."
             required
           />
-          <button type="submit" disabled={loading}>
+          <button type="submit" disabled={loading} className="sendbutton">
             {loading ? 'Sending...' : 'Send'}
           </button>
         </form>
