@@ -25,11 +25,15 @@ const Dashboard = () => {
     { name: 'Mike John', story: 'Mike is working as a CTO at a Fortune 500 company.', profileImage: 'mike.png' },
     { name: 'Emily Davis', story: 'Emily is a successful entrepreneur who owns multiple businesses.', profileImage: 'emily.png' }
   ];
-  
 
   // Navigate to the Discussion page
   const navigateToDiscussion = () => {
     navigate('/discussion');
+  };
+
+  // Navigate to the Job Portal page
+  const navigateToJobPost = () => {
+    navigate('/jobpost');
   };
 
   return (
@@ -39,7 +43,7 @@ const Dashboard = () => {
         <div className="logo">AlumniSphere</div>
         <div className="nav-links">
           <a href="#" onClick={navigateToDiscussion}>Discussion Forum</a> {/* Use navigate for redirection */}
-          <a href="#">Job Portal</a>
+          <a href="#" onClick={navigateToJobPost}>Job Portal</a> {/* Navigate to Job Portal */}
           <a href="#">Events</a>
           <a href="#">Giving</a>
         </div>
@@ -94,10 +98,9 @@ const Dashboard = () => {
       {/* Media Gallery Section */}
       <h2><center>Media Gallery</center></h2>
       <section className="media-gallery">
-        
         <div className="gallery">
           <img src="mg1.png" alt="Media 1" width="100px" height="100px"/>
-          <img src="mg2.png" alt="Media 2" width="100px" height="100px"/><br></br>
+          <img src="mg2.png" alt="Media 2" width="100px" height="100px"/><br />
           <img src="mg3.png" alt="Media 3" width="100px" height="100px"/>
           <img src="mg4.png" alt="Media 4" width="100px" height="100px"/>
         </div>

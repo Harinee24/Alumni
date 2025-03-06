@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const userRoutes = require('./routes/userRoutes');
 const messageRoutes = require('./routes/messageRoutes'); // Import message routes
+const jobRoutes = require('./routes/jobRoutes'); // Import job routes
 
 // Load environment variables
 dotenv.config();
@@ -47,6 +48,7 @@ mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/alumnispher
 // Routes
 app.use('/api/auth', userRoutes);  // Authentication routes
 app.use('/api/messages', messageRoutes);  // Messages routes
+app.use('/api/jobs', jobRoutes);  // Job routes
 
 // Default route
 app.get('/', (req, res) => {
