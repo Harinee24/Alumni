@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import './JobPost.css'; // Assuming you have a CSS file for styling
 
 const JobPost = () => {
@@ -57,16 +58,49 @@ const JobPost = () => {
       setError('Failed to post job');
     }
   };
+  const navigate = useNavigate();
+    
+  const navigateToDiscussion = () => {
+    navigate('/discussion');
+  };
+
+  // Navigate to the Profile page when clicking the profile logo
+  const navigateToProfile = () => {
+    navigate('/profile');
+  };
+
+  const navigateToDashboard = () => {
+    navigate('/dashboard');
+  };
 
   return (
     <div className="job-post-container">
       {/* Navbar */}
       <nav className="navbar">
-        <div className="logo">AlumniSphere</div>
+        <div className="logo"><a href='#' onClick={navigateToDashboard} style={{color:"white"}}>AlumniSphere</a></div>
         <div className="nav-links">
-          <a href="/dashboard">Dashboard</a>
-          <a href="#">Job Postings</a>
+          <a href="#" onClick={navigateToDiscussion}>Discussion Forum</a> {/* Use navigate for redirection */}
+          <a href="#" >Job Portal</a> {/* Navigate to Job Portal */}
+          <a href="#">Events</a>
+          <a href="#">Giving</a>
         </div>
+        <div className="profile-btn">
+  {/* Profile logo */}
+  <img 
+    src="profile-logo.png" 
+    alt="Profile" 
+    className="profile-logo" 
+    onClick={navigateToProfile} 
+    style={{
+      cursor: 'pointer',
+      width: '40px',
+      height: '40px',
+      borderRadius: '50%', // This makes the image circular
+      objectFit: 'cover' // Ensures the image fits nicely inside the circle
+    }}
+  />
+</div>
+
       </nav>
       {/* Hero Section */}
       <section className="hero-section">
@@ -86,6 +120,7 @@ const JobPost = () => {
                   <span>{job.title}</span>
                   <span>{new Date(job.createdAt).toLocaleString()}</span>
                 </div> */}
+                <p><strong>Title:</strong> {job.title}</p>
                 <p><strong>Company:</strong> {job.company}</p>
                 <p><strong>Skills:</strong> {job.skills}</p>
                 <p><strong>Experience:</strong> {job.experience} years</p>

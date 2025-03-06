@@ -1,120 +1,123 @@
 /* General Styles */
 body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f6f9;
-  }
-  
-  /* Login Container */
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f6f9;
+}
+
+/* Login Container */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 120vh;
+  background-color: #2C3E50;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 40px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* Form */
+form {
+  width: 110%;
+  max-width: 400px;
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Group */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 16px;
+  color: #2C3E50;
+  margin-bottom: 8px;
+  display: block;
+}
+
+input,
+select {
+  width: 90%;
+  margin-left: 55px;
+  padding: 10px;
+  border: 1px solid #BDC3C7;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #34495E;
+  background-color: #ECF0F1;
+  margin-top: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Input & Select focus effect */
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #E74C3C;
+  box-shadow: 0 0 8px rgba(231, 76, 60, 0.3);
+}
+
+/* Error Message */
+.error-message {
+  color: #E74C3C;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* Submit Button */
+button {
+  margin-top: 30px;
+  width: 100%;
+  padding: 14px;
+  background-color: #E74C3C;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #C0392B;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
   .login-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 120vh;
-    background-color: #2C3E50;
+    padding: 20px;
   }
-  
-  h1 {
-    font-size: 32px;
-    font-weight: 600;
-    color: white;
-    margin-bottom: 40px;
-    text-align: center;
-    letter-spacing: 1px;
-  }
-  
-  /* Form */
+
   form {
-    width: 100%;
-    max-width: 400px;
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
   }
-  
-  /* Form Group */
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  label {
-    font-size: 16px;
-    color: #2C3E50;
-    margin-bottom: 8px;
-    display: block;
-  }
-  
-  input,
-  select {
-    width: 97%;
-    padding: 10px;
-    border: 1px solid #BDC3C7;
-    border-radius: 8px;
-    font-size: 16px;
-    color: #34495E;
-    background-color: #ECF0F1;
-    margin-top: 8px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  /* Input & Select focus effect */
-  input:focus,
-  select:focus {
-    outline: none;
-    border-color: #E74C3C;
-    box-shadow: 0 0 8px rgba(231, 76, 60, 0.3);
-  }
-  
-  /* Error Message */
-  .error-message {
-    color: #E74C3C;
-    font-size: 14px;
-    margin-top: 10px;
-  }
-  
-  /* Submit Button */
-  button {
-    width: 100%;
-    padding: 14px;
-    background-color: #E74C3C;
-    color: white;
-    font-size: 18px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #C0392B;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 480px) {
-    .login-container {
-      padding: 20px;
-    }
-  
-    form {
-      width: 90%;
-    }
-  }
-  .back-btn {
-    width: 15%;
-    padding: 1px;
-    background-color: #2C3E50;
-    color: white;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    margin-top: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .back-btn:hover {
-    background-color: #2C3E50;
-  }
+}
+.back-btn {
+  width: 15%;
+  padding: 1px;
+  background-color: #2C3E50;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 20px;
+  cursor: pointer;
+  margin-left: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #2C3E50;
+}

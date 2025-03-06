@@ -69,8 +69,25 @@
     text-align: center;
   }
   .service {
-    background-color: #c6c3c3; 
+    background-color: #E74C3C; 
   }
   .service h3 {
-    color: black; 
+    color: white; 
+  }
+  .services {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+    padding: 20px 20px;
+    background-color: #ECF0F1;
+  }
+  
+  .services-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  #achietitle{
+    text-align: center;
   }

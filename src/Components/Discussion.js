@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Discussion.css'; // Assuming you have a CSS file for styling
+import { useNavigate } from 'react-router-dom';
 
 const Discussion = () => {
   const [messages, setMessages] = useState([]);
@@ -50,16 +51,58 @@ const Discussion = () => {
       setLoading(false); // Hide loading indicator
     }
   };
+  
+  const navigate = useNavigate();
+    
+  const navigateToJobPost = () => {
+    navigate('/jobpost');
+  };
+
+  // Navigate to the Profile page when clicking the profile logo
+  const navigateToProfile = () => {
+    navigate('/profile');
+  };
+
+  const navigateToDashboard = () => {
+    navigate('/dashboard');
+  };
 
   return (
     <div className="discussion-container">
-      {/* Navbar */}
-      <nav className="navbar">
+      
+      {/* <nav className="navbar">
         <div className="logo">AlumniSphere</div>
         <div className="nav-links">
           <a href="/dashboard">Dashboard</a>
           <a href="#">Discussion Forum</a>
         </div>
+      </nav> */}
+      {/* Navbar */}
+      <nav className="navbar">
+        <div className="logo"><a href='#' onClick={navigateToDashboard} style={{color:"white"}}>AlumniSphere</a></div>
+        <div className="nav-links">
+          <a href="#" >Discussion Forum</a> {/* Use navigate for redirection */}
+          <a href="#" onClick={navigateToJobPost}>Job Portal</a> {/* Navigate to Job Portal */}
+          <a href="#">Events</a>
+          <a href="#">Giving</a>
+        </div>
+        <div className="profile-btn">
+  {/* Profile logo */}
+  <img 
+    src="profile-logo.png" 
+    alt="Profile" 
+    className="profile-logo" 
+    onClick={navigateToProfile} 
+    style={{
+      cursor: 'pointer',
+      width: '40px',
+      height: '40px',
+      borderRadius: '50%', // This makes the image circular
+      objectFit: 'cover' // Ensures the image fits nicely inside the circle
+    }}
+  />
+</div>
+
       </nav>
 
       {/* Hero Section */}
@@ -88,7 +131,7 @@ const Discussion = () => {
           </div>
         )}
 
-        <form onSubmit={handleSendMessage}>
+        <form onSubmit={handleSendMessage} className='msgcont'>
           <textarea
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}

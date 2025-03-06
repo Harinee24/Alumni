@@ -15,7 +15,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 50px;
+  padding: 20px 70px;
   background-color: #2C3E50;
   color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -46,6 +46,7 @@ a {
   cursor: pointer;
   font-size: 16px;
   border-radius: 5px;
+  max-width: 90px;
   transition: background-color 0.3s ease;
 }
 
@@ -78,7 +79,10 @@ a {
   font-size: 18px;
   width: 190px;
   border-radius: 5px;
+  max-width: 200px;
+  margin-left: 30px;
   transition: background-color 0.3s ease;
+  margin: 30px;
 }
 
 .hero-section .connect-btn:hover {
@@ -87,8 +91,11 @@ a {
 
 /* Services Section */
 .services {
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 50px;
   text-align: center;
-  padding: 50px 20px;
+  padding: 20px 20px;
   background-color: #ECF0F1;
 }
 
@@ -120,7 +127,7 @@ a {
 /* Achievements Section */
 .achievements {
   padding: 60px 20px;
-  background-color: #BDC3C7;
+  background-color: #d4ecfc;
   display: flex;
   justify-content: center;
   gap: 50px;
@@ -187,4 +194,7 @@ a {
   padding: 20px;
   font-size: 16px;
   letter-spacing: 0.5px;
+}
+#achietitle{
+  text-align: center;
 }
