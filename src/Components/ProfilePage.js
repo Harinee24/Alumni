@@ -88,7 +88,12 @@ const ProfilePage = () => {
   const navigateToDashboard = () => {
     navigate('/dashboard');
   };
-
+  const navigateToEvent= () => {
+    navigate('/event-portal');
+  };
+  const navigateToDonation= () => {
+    navigate('/donation');
+  };
 
   if (loading) {
     return <div>Loading...</div>;
@@ -96,23 +101,13 @@ const ProfilePage = () => {
 
   return (
     <div className="profile-container">
-      {/* Navbar
-      <nav className="navbar">
-        <div className="logo">AlumniSphere</div>
-        <div className="nav-links">
-          <a href="/dashboard">Dashboard</a>
-          <a href="/discussion">Discussion Forum</a>
-          <a href="#">Profile</a>
-        </div>
-      </nav> */}
-      {/* Navbar */}
       <nav className="navbar">
         <div className="logo"><a href='#' onClick={navigateToDashboard} style={{color:"white"}}>AlumniSphere</a></div>
         <div className="nav-links">
-          <a href="#" >Discussion Forum</a> {/* Use navigate for redirection */}
+          <a href="#" onClick={navigateToDiscussion}>Discussion Forum</a> {/* Use navigate for redirection */}
           <a href="#" onClick={navigateToJobPost}>Job Portal</a> {/* Navigate to Job Portal */}
-          <a href="#">Events</a>
-          <a href="#">Giving</a>
+          <a href="#"onClick={navigateToEvent}>Events</a>
+          <a href="#" onClick={navigateToDonation}>Giving</a>
         </div>
         <div className="profile-btn">
   {/* Profile logo */}

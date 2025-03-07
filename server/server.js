@@ -7,6 +7,7 @@ const session = require('express-session');
 const userRoutes = require('./routes/userRoutes');  // Import user routes for login and registration
 const messageRoutes = require('./routes/messageRoutes');  // Import message routes
 const jobRoutes = require('./routes/jobRoutes');  // Import job routes
+const eventRoutes = require('./routes/eventRoutes');  // Import event routes
 const User = require('./models/User');  // Import the User model
 
 // Load environment variables
@@ -50,6 +51,7 @@ mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/alumni-data
 app.use('/api/auth', userRoutes);  // Authentication routes
 app.use('/api/messages', messageRoutes);  // Messages routes
 app.use('/api/jobs', jobRoutes);  // Job routes
+app.use('/api/events', eventRoutes);  // Event routes (new route added for event management)
 
 // Profile update route
 app.put('/api/auth/profile', async (req, res) => {

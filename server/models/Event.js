@@ -10,7 +10,7 @@ const eventSchema = new mongoose.Schema({
     required: true,
   },
   expectedStudents: {
-    type: String, // Format can be something like "BSc, 2020-2024"
+    type: String, // Format like "BSc, 2020-2024"
     required: true,
   },
   eventDateTime: {

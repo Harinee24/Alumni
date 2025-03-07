@@ -50,7 +50,7 @@ label {
 input,
 select {
   width: 90%;
-  margin-left: 55px;
+  margin-left: 5px;
   padding: 10px;
   border: 1px solid #BDC3C7;
   border-radius: 8px;
@@ -59,12 +59,14 @@ select {
   background-color: #ECF0F1;
   margin-top: 8px;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  max-width: 200px;
 }
 
 /* Input & Select focus effect */
 input:focus,
 select:focus {
   outline: none;
+  
   border-color: #E74C3C;
   box-shadow: 0 0 8px rgba(231, 76, 60, 0.3);
 }
@@ -120,4 +122,8 @@ button:hover {
 
 .back-btn:hover {
   background-color: #2C3E50;
+}
+
+#email{
+  max-width: 200px;
 }

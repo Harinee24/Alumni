@@ -72,6 +72,12 @@ const JobPost = () => {
   const navigateToDashboard = () => {
     navigate('/dashboard');
   };
+  const navigateToEvent= () => {
+    navigate('/event-portal');
+  };
+  const navigateToDonation= () => {
+    navigate('/donation');
+  };
 
   return (
     <div className="job-post-container">
@@ -81,8 +87,8 @@ const JobPost = () => {
         <div className="nav-links">
           <a href="#" onClick={navigateToDiscussion}>Discussion Forum</a> {/* Use navigate for redirection */}
           <a href="#" >Job Portal</a> {/* Navigate to Job Portal */}
-          <a href="#">Events</a>
-          <a href="#">Giving</a>
+          <a href="#"onClick={navigateToEvent}>Events</a>
+          <a href="#" onClick={navigateToDonation}>Giving</a>
         </div>
         <div className="profile-btn">
   {/* Profile logo */}

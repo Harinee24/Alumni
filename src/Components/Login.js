@@ -206,6 +206,7 @@ const Login = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            style={{width:'100%'}}
           />
         </div>
         <div className="form-group">

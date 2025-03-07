@@ -67,42 +67,39 @@ const Discussion = () => {
     navigate('/dashboard');
   };
 
+  const navigateToEvent = () => {
+    navigate('/event-portal');
+  };
+  const navigateToDonation= () => {
+    navigate('/donation');
+  };
+
   return (
     <div className="discussion-container">
-      
-      {/* <nav className="navbar">
-        <div className="logo">AlumniSphere</div>
-        <div className="nav-links">
-          <a href="/dashboard">Dashboard</a>
-          <a href="#">Discussion Forum</a>
-        </div>
-      </nav> */}
-      {/* Navbar */}
       <nav className="navbar">
-        <div className="logo"><a href='#' onClick={navigateToDashboard} style={{color:"white"}}>AlumniSphere</a></div>
+        <div className="logo"><a href='#' onClick={navigateToDashboard} style={{ color: "white" }}>AlumniSphere</a></div>
         <div className="nav-links">
-          <a href="#" >Discussion Forum</a> {/* Use navigate for redirection */}
+          <a href="#" onClick={() => navigate('/discussion')}>Discussion Forum</a> {/* Navigate directly to the Discussion page */}
           <a href="#" onClick={navigateToJobPost}>Job Portal</a> {/* Navigate to Job Portal */}
-          <a href="#">Events</a>
-          <a href="#">Giving</a>
+          <a href="#" onClick={navigateToEvent}>Events</a>
+          <a href="#" onClick={navigateToDonation}>Giving</a>
         </div>
         <div className="profile-btn">
-  {/* Profile logo */}
-  <img 
-    src="profile-logo.png" 
-    alt="Profile" 
-    className="profile-logo" 
-    onClick={navigateToProfile} 
-    style={{
-      cursor: 'pointer',
-      width: '40px',
-      height: '40px',
-      borderRadius: '50%', // This makes the image circular
-      objectFit: 'cover' // Ensures the image fits nicely inside the circle
-    }}
-  />
-</div>
-
+          {/* Profile logo */}
+          <img 
+            src="profile-logo.png" 
+            alt="Profile" 
+            className="profile-logo" 
+            onClick={navigateToProfile} 
+            style={{
+              cursor: 'pointer',
+              width: '40px',
+              height: '40px',
+              borderRadius: '50%', // This makes the image circular
+              objectFit: 'cover' // Ensures the image fits nicely inside the circle
+            }}
+          />
+        </div>
       </nav>
 
       {/* Hero Section */}

@@ -96,4 +96,19 @@ router.put('/profile', async (req, res) => {
   }
 });
 
+// Get Alumni Directory
+router.get('/alumni-directory', async (req, res) => {
+  try {
+    // Fetch all users (alumni) from MongoDB
+    const alumni = await User.find({ role: 'Alumni' }); // Assuming 'role' field is 'alumni' for alumni users
+    if (!alumni || alumni.length === 0) {
+      return res.status(404).json({ message: 'No alumni found' });
+    }
+    res.status(200).json(alumni); // Send list of alumni users
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Failed to fetch alumni directory' });
+  }
+});
+
 module.exports = router;

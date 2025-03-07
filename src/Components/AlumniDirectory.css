@@ -1,0 +1,84 @@
+/* src/Components/AlumniDirectory.css */
+
+.alumni-directory-container {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar {
+    background-color: #333;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar .logo a {
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+  }
+  
+  .navbar .nav-links a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+  }
+  
+  .navbar .nav-links a:hover {
+    color: #ddd;
+  }
+  
+  .hero-section {
+    background-color: #2C3E50;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+  
+  .directory-content {
+    padding: 2rem;
+    background-color: #f9f9f9;
+  }
+  
+  .alumni-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .alumni-item {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .alumni-item h3 {
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .alumni-item p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .error-message {
+    color: red;
+    text-align: center;
+  }
+  
+  .footer {
+    background-color: #2C3E50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+  }
+  
