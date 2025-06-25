@@ -39,20 +39,25 @@ AluminiSphere transforms the **traditional alumni network** into a **dynamic, AI
 
 ### 2️. Clone the Repository  
 ```bash
-git clone https://github.com/your-username/aluminisphere.git
-cd aluminisphere
-### 3️. Setup Backend
-```bash
-cd backend
-pip install -r requirements.txt  # For Python-based backend
-npm install  # If using Node.js backend
-### 4️. Setup Frontend
-```bash
-cd frontend
+### 1. Clone the repository
+git clone https://github.com/Harinee24/Alumni.git
+cd Alumni
+
+### 2. Setup Backend
+cd server
 npm install
-npm run dev
-### 5️.Run the Project
--Start the backend server
--Run the frontend application
--Access the platform at http://localhost:3000
+node server.js
+
+### 3. Setup Frontend
+npm install
+npm start
+
+### 4️. Setup Python models
+cd Alumni
+python TextAnalysis.py
+python JobAI.py
+
+### 5️.Access the Project
+-React App: http://localhost:3000
+-Express APIs: http://localhost:5000
 
