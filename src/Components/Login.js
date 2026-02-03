@@ -196,7 +196,7 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <h1>Welcome VITian</h1>
+      <h1>Welcome CKCETian</h1>
       <form onSubmit={handleLogin}>
         <div className="form-group">
           <label htmlFor="email">Mail ID:</label>
@@ -233,7 +233,20 @@ const Login = () => {
           </select>
         </div>
         {error && <p className="error-message">{error}</p>}
-        <button type="submit">Login</button>
+        <button
+  type="submit"
+  style={{
+    backgroundColor: "#231A6D", // button background
+    color: "white",              // text color
+    padding: "10px 20px",
+    border: "none",
+    borderRadius: "5px",
+    cursor: "pointer",
+  }}
+>
+  Login
+</button>
+
       </form>
 
       {/* Back Button to redirect to HomePage */}

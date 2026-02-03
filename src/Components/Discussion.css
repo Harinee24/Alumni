@@ -11,7 +11,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #2C3E50;
+    background-color: #231A6D;
     padding: 20px;
   }
   
@@ -34,14 +34,14 @@ body {
   
   .navbar .logout-btn button {
     padding: 10px 20px;
-    background-color: #E74C3C;
+    background-color: #A5D8F5;
     color: white;
     border: none;
     cursor: pointer;
   }
   
   .navbar .logout-btn button:hover {
-    background-color: #C0392B;
+    background-color: #A5D8F5;
   }
   
   /* Hero Section */
@@ -120,7 +120,7 @@ body {
   
   /* Footer */
   .footer {
-    background-color: #2C3E50;
+    background-color: #231A6D;
     padding: 20px;
     color: white;
     text-align: center;
@@ -135,7 +135,8 @@ body {
   }
   
   .sendbutton{
-    background-color: #E74C3C;
+    color: #231A6D;
+    background-color: #A5D8F5;
     width: 100px;
   }
   

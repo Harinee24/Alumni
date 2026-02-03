@@ -13,13 +13,13 @@ body {
   justify-content: center;
   align-items: center;
   height: 120vh;
-  background-color: #2C3E50;
+  background-color: #A5D8F5;
 }
 
 h1 {
   font-size: 32px;
   font-weight: 600;
-  color: white;
+  color: #231A6D;
   margin-bottom: 40px;
   text-align: center;
   letter-spacing: 1px;
@@ -55,11 +55,11 @@ select {
   border: 1px solid #BDC3C7;
   border-radius: 8px;
   font-size: 16px;
-  color: #34495E;
+  color: #231A6D;
   background-color: #ECF0F1;
   margin-top: 8px;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  max-width: 200px;
+  max-width: 80px;
 }
 
 /* Input & Select focus effect */
@@ -67,7 +67,7 @@ input:focus,
 select:focus {
   outline: none;
   
-  border-color: #E74C3C;
+  border-color: #231A6D;
   box-shadow: 0 0 8px rgba(231, 76, 60, 0.3);
 }
 
@@ -83,7 +83,7 @@ button {
   margin-top: 30px;
   width: 100%;
   padding: 14px;
-  background-color: #E74C3C;
+  background-color: #231A6D;
   color: white;
   font-size: 18px;
   border: none;
@@ -93,7 +93,7 @@ button {
 }
 
 button:hover {
-  background-color: #C0392B;
+  background-color: #231A6D;
 }
 
 /* Responsive Design */
@@ -109,8 +109,8 @@ button:hover {
 .back-btn {
   width: 15%;
   padding: 1px;
-  background-color: #2C3E50;
-  color: white;
+  background-color: #A5D8F5;
+  color: #231A6D;
   font-size: 16px;
   border: none;
   border-radius: 8px;
@@ -121,7 +121,7 @@ button:hover {
 }
 
 .back-btn:hover {
-  background-color: #2C3E50;
+  background-color: #A5D8F5;
 }
 
 #email{

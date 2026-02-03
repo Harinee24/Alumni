@@ -22,7 +22,7 @@ const Dashboard = () => {
   // Sample Success Stories
   const alumni = [
     { name: 'John Doe', story: 'John launched his own tech startup after graduation.', profileImage: 'john.png' },
-    { name: 'Jane Smith', story: 'Jane became a renowned scientist in her field.', profileImage: 'jane.png' },
+    { name: 'Jane Smith', story: 'Jane became a renowned scientist in his field.', profileImage: 'jane.png' },
     { name: 'Mike John', story: 'Mike is working as a CTO at a Fortune 500 company.', profileImage: 'mike.png' },
     { name: 'Emily Davis', story: 'Emily is a successful entrepreneur who owns multiple businesses.', profileImage: 'emily.png' }
   ];
@@ -52,7 +52,10 @@ const Dashboard = () => {
     <div className="dashboard-container">
       {/* Navbar */}
       <nav className="navbar">
-        <div className="logo">AlumniSphere</div>
+        <div className="logo">
+    <img src="/cklogo.png" alt="CKCET Logo" className="ck-logo" />
+    <span>AlumniSphere</span>
+  </div>
         <div className="nav-links">
           <a href="#" onClick={navigateToDiscussion}>Discussion Forum</a> {/* Use navigate for redirection */}
           <a href="#" onClick={navigateToJobPost}>Job Portal</a> {/* Navigate to Job Portal */}
@@ -80,7 +83,7 @@ const Dashboard = () => {
 
       {/* Hero Section */}
       <section className="hero-section">
-        <h1>Welcome VITians</h1>
+        <h1>Welcome CKCETians</h1>
       </section>
 
       {/* Services Section */}
@@ -100,7 +103,7 @@ const Dashboard = () => {
     <Link to="/alumni-directory"><h3>Alumni Directory</h3></Link>
   </div>
   <div className="service">
-    <Link to="/vit-newsletter"><h3>VIT Newsletter</h3></Link>
+    <Link to="/vit-newsletter"><h3>CKCET Newsletter</h3></Link>
   </div>
   <div className="service">
     <Link to="/donation"><h3>Donation Panel</h3></Link>
@@ -109,16 +112,16 @@ const Dashboard = () => {
       </section>
 
       {/* Achievements Section */}
-      <h2 id='achietitle'>Achievements of VIT</h2>
+      <h2 id='achietitle'>Achievements of CKCET</h2>
       <section className="achievements">
         
         <div className="achievement">
           <img src="vitachiev.png" alt="VIT Achievement" width="30px" height="220px" />
-          <p>VIT has been ranked among the top universities in India, known for its excellence in education.</p>
+          <p>CKCET has been ranked among the top universities in India, known for its excellence in education.</p>
         </div>
         <div className="achievement">
           <img src="vitachi.png" alt="VIT Achievement 2" width="30px" height="220px" />
-          <p>VIT has been recognized globally for its innovative research and academic programs.</p>
+          <p>CKCET has been recognized globally for its innovative research and academic programs.</p>
         </div>
       </section>
 
@@ -147,7 +150,7 @@ const Dashboard = () => {
 
       {/* Footer */}
       <footer className="footer">
-        <p>&copy; 2025 AlumniSphere. All Rights Reserved.</p>
+        <p>&copy; 2026 AlumniSphere. All Rights Reserved.</p>
       </footer>
     </div>
   );

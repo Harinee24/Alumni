@@ -4,8 +4,11 @@
   
   .navbar {
     display: flex;
+    display: flex;
+  align-items: center;
+  gap: 10px; 
     justify-content: space-between;
-    background-color: #2c3e50;
+    background-color: #231A6D;
     padding: 1rem;
     color: white;
   }
@@ -22,15 +25,15 @@
   
   .navbar .logout-btn button {
     padding: 10px 20px;
-    background-color: #e74c3c;
+    background-color: #A5D8F5;
     color: white;
     border: none;
     cursor: pointer;
   }
   
   .hero-section {
-    background-color: #2C3E50;
-    color: white;
+    background-color: #A5D8F5;
+    color: #231A6D;
     padding: 2rem;
     text-align: center;
   }
@@ -63,13 +66,13 @@
   }
   
   .footer {
-    background-color: #34495e;
+    background-color: #231A6D;
     color: white;
     padding: 1rem;
     text-align: center;
   }
   .service {
-    background-color: #E74C3C; 
+    background-color: #231A6D; 
   }
   .service h3 {
     color: white; 

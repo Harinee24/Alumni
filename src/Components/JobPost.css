@@ -6,7 +6,7 @@
   }
   
   .navbar {
-    background-color: #333;
+    background-color: #231A6D;
     padding: 10px 20px;
     color: white;
   }
@@ -83,8 +83,8 @@
   .job-form-container button {
 
     margin-left: 30%;
-    background-color: #E74C3C;
-    color: white;
+    color: #231A6D;
+    background-color: #A5D8F5;
     padding: 10px 10px;
     border: none;
     cursor: pointer;
@@ -93,7 +93,7 @@
   }
   
   .job-form-container button:hover{
-    background-color: #C0392B;
+  background-color: #A5D8F5;
   }
 
   .job-form-container button:disabled {
@@ -126,7 +126,7 @@
   }
   
   .footer {
-    background-color: #333;
+    background-color: #231A6D;
     color: white;
     text-align: center;
     padding: 10px 0;

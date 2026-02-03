@@ -7,7 +7,7 @@
   .navbar {
     display: flex;
     justify-content: space-between;
-    background-color: #333;
+    background-color: #231A6D;
     padding: 10px 20px;
   }
   
@@ -57,7 +57,7 @@
   .footer {
     text-align: center;
     padding: 10px 0;
-    background-color: #333;
+    background-color: #231A6D;
     color: white;
     margin-top: 50px;
   }
