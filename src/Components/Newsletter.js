@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './AlumniDirectory.css';  // Add your custom styles
+import './Newsletter.css';  // Add your custom styles
 import { useNavigate } from 'react-router-dom';
 
 const AlumniDirectory = () => {
@@ -78,7 +78,7 @@ const AlumniDirectory = () => {
       </nav>
 
       <section className="hero-section">
-        <h1>Alumni Directory</h1>
+        <h1>CKCET Newsletter</h1>
       </section>
 
       <div className="directory-content">
@@ -88,14 +88,10 @@ const AlumniDirectory = () => {
           <p>Loading alumni data...</p>
         ) : (
           <div className="alumni-list">
-            {alumni.map((alumnus, index) => (
-              <div key={index} className="alumni-item">
-                <h3>{alumnus.name}</h3>
-                <p><strong>Degree:</strong> {alumnus.department}</p>
-                <p><strong>Year of Graduation:</strong> {alumnus.gradYear}</p>
-                <p><strong>Skills:</strong> {alumnus.knownSkills.join(', ')}</p>
+              <div className="alumni-item">
+                <h3>November</h3>
+                <p><strong>Click to download</strong></p>
               </div>
-            ))}
           </div>
         )}
       </div>

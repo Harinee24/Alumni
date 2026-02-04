@@ -103,7 +103,7 @@ const Dashboard = () => {
     <Link to="/alumni-directory"><h3>Alumni Directory</h3></Link>
   </div>
   <div className="service">
-    <Link to="/vit-newsletter"><h3>CKCET Newsletter</h3></Link>
+    <Link to="/newsletter"><h3>CKCET Newsletter</h3></Link>
   </div>
   <div className="service">
     <Link to="/donation"><h3>Donation Panel</h3></Link>

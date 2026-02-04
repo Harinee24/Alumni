@@ -8,6 +8,7 @@ import ProfilePage from './Components/ProfilePage'; // Import ProfilePage compon
 import EventPortal from './Components/EventPortal'; // Import EventPortal component
 import AlumniDirectory from './Components/AlumniDirectory';
 import Donation from './Components/Donation';
+import Newsletter from './Components/Newsletter';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/event-portal" element={<EventPortal />} /> {/* Add event portal route */}
         <Route path="/alumni-directory" element={<AlumniDirectory />} />
         <Route path="/donation" element={<Donation />} /> {/* Add donation route */}
+        <Route path="/newsletter" element={<Newsletter />} /> {/* Add newsletter route */}
       </Routes>
     </Router>
   );

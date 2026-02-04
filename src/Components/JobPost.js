@@ -186,7 +186,7 @@ const JobPost = () => {
      
       {/* Footer */}
       <footer className="footer">
-        <p>&copy; 2025 AlumniSphere. All Rights Reserved.</p>
+        <p>&copy; 2026 AlumniSphere. All Rights Reserved.</p>
       </footer>
     </div>
   );
