@@ -83,3 +83,41 @@
     letter-spacing: 0.5px;
   }
   
+
+
+
+ .filter-section {
+  display: flex;
+  gap: 30px;
+  margin: 25px 0;
+  justify-content: flex-start;   
+  width: 100%;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+}
+
+.filter-group label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.filter-group select {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.filter-label {
+  font-weight: 700;
+  font-size: 20px;
+  margin-right: 20px;
+  align-self: flex-end;  /* aligns with dropdown bottom nicely */
+  padding-bottom: 50px;
+  padding-left: 30px;
+}

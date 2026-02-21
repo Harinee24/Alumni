@@ -31,12 +31,46 @@
     cursor: pointer;
   }
   
-  .hero-section {
-    background-color: #A5D8F5;
-    color: #231A6D;
-    padding: 2rem;
-    text-align: center;
-  }
+  .hero {
+  height: 50vh;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.4)
+  );
+}
+
+.hero-text {
+  position: relative;
+  text-align: center;
+  color: white;
+  max-width: 700px;
+  padding: 20px;
+  animation: fadeIn 1.5s ease;
+}
+
+.hero-text h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
   
   .success-stories {
     padding: 2rem;
@@ -71,26 +105,68 @@
     padding: 1rem;
     text-align: center;
   }
-  .service {
-    background-color: #231A6D; 
-  }
-  .service h3 {
-    color: white; 
-  }
-  .services {
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-bottom: 50px;
-    text-align: center;
-    padding: 20px 20px;
-    background-color: #ECF0F1;
-  }
   
-  .services-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-  }
+.services {
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* 👈 Force 3 columns */
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.service-box {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s;
+}
+
+.service-box::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.service-box a {
+  text-decoration: none;   /* remove underline */
+  color: white;            /* make text white */
+}
+
+.service-box h3 {
+  color: white;
+  font-size: 25px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.service-box:hover {
+  transform: scale(1.05);
+}
+
+.service-link {
+  text-decoration: none;
+  display: block;
+}
+
+.service-link .service-box {
+  cursor: pointer;
+}
+
   #achietitle{
     text-align: center;
   }

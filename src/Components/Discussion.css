@@ -6,43 +6,43 @@ body {
     background-color: #f4f6f9;
   }
   
-  /* Navbar */
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #231A6D;
-    padding: 20px;
-  }
-  
-  .navbar .logo {
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .navbar .nav-links a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
-    font-size: 18px;
-  }
-  
-  .navbar .nav-links a:hover {
-    text-decoration: underline;
-  }
-  
-  .navbar .logout-btn button {
-    padding: 10px 20px;
-    background-color: #A5D8F5;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .navbar .logout-btn button:hover {
-    background-color: #A5D8F5;
-  }
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 8%;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.6); /* Transparent */
+  backdrop-filter: blur(8px);
+  color: white;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  margin-right: 400px;
+}
+
+.logo img {
+  width: 200px;
+}
+
+.nav-links a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #00e0ff;
+}
   
   /* Hero Section */
   .hero-section {

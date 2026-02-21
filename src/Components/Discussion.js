@@ -76,27 +76,31 @@ const Discussion = () => {
 
   return (
     <div className="discussion-container">
+      {/* ================= NAVBAR ================= */}
       <nav className="navbar">
-        <div className="logo"><a href='#' onClick={navigateToDashboard} style={{ color: "white" }}>AlumniSphere</a></div>
+        <div className="logo">
+          <img src="/cklogo.png" alt="logo" />
+          <a href="/dashboard" >AlumniSphere</a>
+        </div>
+
         <div className="nav-links">
-          <a href="#" onClick={() => navigate('/discussion')}>Discussion Forum</a> {/* Navigate directly to the Discussion page */}
-          <a href="#" onClick={navigateToJobPost}>Job Portal</a> {/* Navigate to Job Portal */}
+          <a href="#" >Discussion Forum</a>
+          <a href="#" onClick={navigateToJobPost}>Job Portal</a>
           <a href="#" onClick={navigateToEvent}>Events</a>
           <a href="#" onClick={navigateToDonation}>Giving</a>
         </div>
+
         <div className="profile-btn">
-          {/* Profile logo */}
-          <img 
-            src="profile-logo.png" 
-            alt="Profile" 
-            className="profile-logo" 
-            onClick={navigateToProfile} 
+          <img
+            src="profile-logo.png"
+            alt="Profile"
+            onClick={navigateToProfile}
             style={{
               cursor: 'pointer',
               width: '40px',
               height: '40px',
-              borderRadius: '50%', // This makes the image circular
-              objectFit: 'cover' // Ensures the image fits nicely inside the circle
+              borderRadius: '50%',
+              objectFit: 'cover'
             }}
           />
         </div>
