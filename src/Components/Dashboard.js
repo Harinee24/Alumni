@@ -185,16 +185,16 @@ const Dashboard = () => {
   /* ================= ACHIEVEMENTS (Same as HomePage) ================= */
   const alumni = [
     {
+      name: "Autonomous Status Achievement",
+      story:
+        "CKCET has been granted autonomous status by the University Grants Commission (UGC) and Anna University for a period of 10 years, starting from 2025 until 2035.",
+      img: "autonomus.png"
+    },
+    {
       name: "CK Technology Business Incubator",
       story:
         "Signed an MoU with Anna Incubator, Anna University, Chennai, to establish the CK Technology Business Incubator at CKCET campus, fostering innovation, incubation, and startups.",
       img: "ach1.png"
-    },
-    {
-      name: "Startup Tamilnadu Hackathon Achievement",
-      story:
-        "At the prestigious 'Thiruppur Road Safety Hackathon,' organized by Startup Tamilnadu and Thiruppur District, two final-year EEE students from CKCET secured second place and won a cash prize of Rs. 20,000/-.",
-      img: "ach2.png"
     }
   ];
 
@@ -237,6 +237,7 @@ const Dashboard = () => {
   const navigateToEvent = () => navigate('/event-portal');
   const navigateToProfile = () => navigate('/profile');
   const navigateToDonation = () => navigate('/donation');
+  const navigateToDirectory = () => navigate('/alumni-directory');
 
   return (
     <div className="home-page">
@@ -252,6 +253,7 @@ const Dashboard = () => {
           <a href="#" onClick={navigateToDiscussion}>Discussion Forum</a>
           <a href="#" onClick={navigateToJobPost}>Job Portal</a>
           <a href="#" onClick={navigateToEvent}>Events</a>
+          <a href="#" onClick={navigateToDirectory}>Alumni Directory</a>
           <a href="#" onClick={navigateToDonation}>Giving</a>
         </div>
 

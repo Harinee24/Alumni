@@ -125,16 +125,16 @@ function HomePage() {
 
   const alumni = [
     {
+      name: "Autonomous Status Achievement",
+      story:
+        "CKCET has been granted autonomous status by the University Grants Commission (UGC) and Anna University for a period of 10 years, starting from 2025 until 2035.",
+      img: "autonomus.png"
+    },
+    {
       name: "CK Technology Business Incubator",
       story:
         "Signed an MoU with Anna Incubator, Anna University, Chennai, to establish the CK Technology Business Incubator at CKCET campus, fostering innovation, incubation, and startups.",
       img: "ach1.png"
-    },
-    {
-      name: "Startup Tamilnadu Hackathon Achievement",
-      story:
-        "At the prestigious 'Thiruppur Road Safety Hackathon,' organized by Startup Tamilnadu and Thiruppur District, two final-year EEE students from CKCET secured second place and won a cash prize of Rs. 20,000/-.",
-      img: "ach2.png"
     }
   ];
 
@@ -212,10 +212,11 @@ function HomePage() {
           <a href="/login">Discussion Forum</a>
           <a href="/login">Job Portal</a>
           <a href="/login">Events</a>
+          <a href="/login">Alumni Directory</a>
           <a href="/login">Giving</a>
         </div>
 
-        <button className="login-btn" onClick={goLogin}>
+        <button className="login-btn" onClick={goLogin} style={{width:"100px"}}>
           LOGIN
         </button>
       </nav>

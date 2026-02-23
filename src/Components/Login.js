@@ -146,6 +146,7 @@ const Login = () => {
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     minHeight: "100vh",
+    height: "100%",
     width: "100%",
   }}
 >
@@ -174,7 +175,7 @@ const Login = () => {
       </nav>
 
       {/* CENTER CONTENT */}
-      <div className="center-container" style={{ marginTop: "20px" }}>
+      <div className="center-container" style={{ marginTop: "10px", marginBottom: "50px" }}>
         <div className="login-card">
           <h1>Welcome CKCETian</h1>
           <p className="tagline">Connect • Grow • Inspire</p>

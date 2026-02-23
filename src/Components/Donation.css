@@ -1,19 +1,16 @@
-/* General styles for the Donation page */
-.donation-container {
-    font-family: Arial, sans-serif;
-    
-  }
-  
   .navbar {
     display: flex;
+    display: flex;
+  align-items: center;
+  gap: 10px; 
     justify-content: space-between;
     background-color: #231A6D;
-    padding: 10px 20px;
+    padding: 1rem;
+    color: white;
   }
   
   .navbar .logo {
-    color: white;
-    font-size: 24px;
+    font-size: 1.5rem;
   }
   
   .navbar .nav-links a {
@@ -22,43 +19,10 @@
     text-decoration: none;
   }
   
-  .navbar .nav-links a:hover {
-    text-decoration: underline;
-  }
-  
-  .donation-section {
-    text-align: center;
-    margin-top: 50px;
-  }
-  
-  .donation-section h1 {
-    font-size: 32px;
-    color: #333;
-  }
-  
-  .qr-code-container {
-    margin: 20px 0;
-  }
-  
-  .qr-code {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-  }
-  
-  .donation-text {
-    font-size: 18px;
-    color: #555;
-    margin-top: 20px;
-    margin-bottom: 80px;
-  }
-  
-  /* Footer styles */
-  .footer {
-    text-align: center;
-    padding: 10px 0;
-    background-color: #231A6D;
+  .navbar .logout-btn button {
+    padding: 10px 20px;
+    background-color: #A5D8F5;
     color: white;
-    margin-top: 50px;
+    border: none;
+    cursor: pointer;
   }
-  

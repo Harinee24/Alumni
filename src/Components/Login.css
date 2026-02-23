@@ -33,7 +33,7 @@
 
 /* ===== CENTER SECTION ===== */
 .center-container {
-  padding-top: 150px;
+  padding-top: 90px;
   height: 82vh;
   display: flex;
   justify-content: center;
@@ -43,7 +43,7 @@
 /* ===== LOGIN CARD (PREMIUM GLASS) ===== */
 .login-card {
   width: 400px;
-  padding: 20px 40px;
+  padding: 10px 40px;
   border-radius: 25px;
 
   background: rgba(255, 255, 255, 0.15);
@@ -125,7 +125,6 @@
 }
 
 .login-btn:hover {
-  transform: scale(1.05);
   background: linear-gradient(135deg, #0300b5, #8093ff);
   box-shadow: 0 8px 20px rgba(95, 61, 196, 0.4);
 }
@@ -170,6 +169,5 @@
 .back-link:hover::before {
   margin-right: 6px;
 }
-
 
 

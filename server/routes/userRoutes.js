@@ -63,33 +63,84 @@ router.get('/profile', (req, res) => {
 });
 
 // Update user profile
+// router.put('/profile', async (req, res) => {
+//   const { name, department, gradYear, email, preferredJobLocation, knownSkills, experienceInYears } = req.body;
+
+//   if (!req.session.user) {
+//     return res.status(401).json({ message: 'Please log in to update your profile' });
+//   }
+
+//   try {
+//     const updatedUser = await User.findByIdAndUpdate(
+//       req.session.user._id,  // Using the user ID from the session
+//       {
+//         name,
+//         department,
+//         gradYear,
+//         email,
+//         preferredJobLocation,
+//         knownSkills,
+//         experienceInYears,
+//       },
+//       { new: true } // Return the updated user object
+//     );
+
+//     if (!updatedUser) {
+//       return res.status(400).json({ message: 'User not found' });
+//     }
+
+//     res.status(200).json(updatedUser); // Send the updated user data back
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).json({ message: 'Error updating profile' });
+//   }
+// });
+
+
 router.put('/profile', async (req, res) => {
-  const { name, department, gradYear, email, preferredJobLocation, knownSkills, experienceInYears } = req.body;
+  const {
+    name,
+    department,
+    gradYear,
+    email,
+    knownSkills,
+    experienceInYears,
+    currentCompany,
+    currentRole,
+    currentJobLocation,
+    pastExperience,
+  } = req.body;
 
   if (!req.session.user) {
     return res.status(401).json({ message: 'Please log in to update your profile' });
   }
 
   try {
-    const updatedUser = await User.findByIdAndUpdate(
-      req.session.user._id,  // Using the user ID from the session
-      {
-        name,
-        department,
-        gradYear,
-        email,
-        preferredJobLocation,
-        knownSkills,
-        experienceInYears,
-      },
-      { new: true } // Return the updated user object
-    );
+    const user = await User.findById(req.session.user._id);
 
-    if (!updatedUser) {
-      return res.status(400).json({ message: 'User not found' });
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
     }
 
-    res.status(200).json(updatedUser); // Send the updated user data back
+    // Basic fields
+    user.name = name;
+    user.department = department;
+    user.gradYear = gradYear;
+    user.email = email;
+    user.knownSkills = knownSkills;
+    user.experienceInYears = experienceInYears;
+
+    // 🔹 Only apply job-related fields if Alumni
+    if (user.role === 'Alumni') {
+      user.currentCompany = currentCompany || '';
+      user.currentRole = currentRole || '';
+      user.currentJobLocation = currentJobLocation || '';
+      user.pastExperience = pastExperience || [];
+    }
+
+    const updatedUser = await user.save();
+
+    res.status(200).json(updatedUser);
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: 'Error updating profile' });

@@ -310,3 +310,7 @@
   background: #241a55;
   box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
 }
+
+.Toastify__toast-container {
+  z-index: 9999;
+}

@@ -349,6 +349,7 @@ const EventPortal = () => {
   const navigateToDashboard = () => navigate('/dashboard');
   const navigateToJobPortal = () => navigate('/jobpost');
   const navigateToDonation = () => navigate('/donation');
+  const navigateToDirectory = () => navigate('/alumni-directory');
 
   return (
     <div className="event-portal-container">
@@ -365,6 +366,7 @@ const EventPortal = () => {
           <a href="#" onClick={navigateToDiscussion}>Discussion Forum</a>
           <a href="#" onClick={navigateToJobPortal}>Job Portal</a>
           <a href="#">Events</a>
+          <a href="#" onClick={navigateToDirectory}>Alumni Directory</a>
           <a href="#" onClick={navigateToDonation}>Giving</a>
         </div>
 

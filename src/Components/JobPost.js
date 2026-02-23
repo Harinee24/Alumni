@@ -549,19 +549,24 @@ function JobPost() {
   const navigateToEvent = () => navigate('/event-portal');
   const navigateToProfile = () => navigate('/profile');
   const navigateToDonation = () => navigate('/donation');
+  const navigateToDashboard = () => navigate('/dashboard');
+  const navigateToDirectory = () => navigate('/alumni-directory');
 
   return (
     <div className="page-wrapper">
       <nav className="navbar">
         <div className="logo">
           <img src="/cklogo.png" alt="logo" />
-          <span>AlumniSphere</span>
+          <a href="#" onClick={navigateToDashboard} style={{ color: "white" }}>
+            AlumniSphere
+          </a>
         </div>
 
         <div className="nav-links">
           <a href="#" onClick={navigateToDiscussion}>Discussion Forum</a>
           <a href="#" onClick={navigateToJobPost}>Job Portal</a>
           <a href="#" onClick={navigateToEvent}>Events</a>
+          <a href="#" onClick={navigateToDirectory}>Alumni Directory</a>          
           <a href="#" onClick={navigateToDonation}>Giving</a>
         </div>
 
