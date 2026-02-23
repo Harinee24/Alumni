@@ -1,0 +1,31 @@
+.pdf-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pdf-controls {
+  margin-top: 10px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.pdf-controls button {
+  background-color: #231A6D;
+  color: white;
+  opacity: 0.6;
+  padding: 5px 12px;
+  cursor: pointer;
+  width: 50px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.react-pdf__Page {
+  border: 2px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background-color: white;
+}
