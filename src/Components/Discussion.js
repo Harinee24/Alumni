@@ -74,6 +74,19 @@ const Discussion = () => {
     navigate('/donation');
   };
 
+  const [user, setUser] = useState({ profilePic: '' });
+
+  useEffect(() => {
+    axios
+      .get('http://localhost:5000/api/auth/profile', { withCredentials: true })
+      .then((res) => {
+        setUser(res.data || { profilePic: '' });
+      })
+      .catch((err) => {
+        console.error('Failed to fetch profile:', err);
+      });
+  }, []);
+
   return (
     <div className="discussion-container">
       {/* ================= NAVBAR ================= */}
@@ -91,18 +104,18 @@ const Discussion = () => {
         </div>
 
         <div className="profile-btn">
-          <img
-            src="profile-logo.png"
-            alt="Profile"
-            onClick={navigateToProfile}
-            style={{
-              cursor: 'pointer',
-              width: '40px',
-              height: '40px',
-              borderRadius: '50%',
-              objectFit: 'cover'
-            }}
-          />
+        <img
+          src={user.profilePic ? `http://localhost:5000/uploads/${user.profilePic}` : "profile-logo.png"}
+          alt="Profile"
+          onClick={navigateToProfile}
+          style={{
+            cursor: 'pointer',
+            width: '40px',
+            height: '40px',
+            borderRadius: '50%',
+            objectFit: 'cover'
+          }}
+        />
         </div>
       </nav>
 

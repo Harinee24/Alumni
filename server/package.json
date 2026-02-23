@@ -12,7 +12,8 @@
         "dotenv": "^8.2.0",
         "express": "^4.17.1",
         "express-session": "^1.18.1",
-        "mongoose": "^5.10.9"
+        "mongoose": "^5.10.9",
+        "multer": "^2.0.2"
     },
     "author": "",
     "license": "ISC"

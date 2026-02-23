@@ -2,25 +2,44 @@
 const express = require('express');
 const User = require('../models/User');
 const router = express.Router();
+const multer = require('multer');
+const path = require('path');
+const fs = require('fs');
 
-// Login route with session-based cookie
+// ------------------ Multer Setup ------------------
+
+// Make sure uploads folder exists
+const uploadDir = path.join(__dirname, '../uploads');
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir);
+}
+
+// Storage settings
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, uploadDir);
+  },
+  filename: function (req, file, cb) {
+    // Save as userId + original extension
+    cb(null, req.session.user._id + path.extname(file.originalname));
+  },
+});
+
+const upload = multer({ storage });
+
+// ------------------ Routes ------------------
+
+// Login route
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
-
   try {
     const user = await User.findOne({ email });
-
-    if (!user) {
-      return res.status(400).json({ message: 'User not found!' });
-    }
-
-    if (user.password !== password) {
+    if (!user) return res.status(400).json({ message: 'User not found!' });
+    if (user.password !== password)
       return res.status(400).json({ message: 'Incorrect password!' });
-    }
 
-    // Store user info in session cookie
     req.session.user = {
-      _id: user._id, // Store user ID in session
+      _id: user._id,
       name: user.name,
       email: user.email,
       role: user.role,
@@ -32,29 +51,24 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Logout route to clear session cookie
+// Logout route
 router.post('/logout', (req, res) => {
   req.session.destroy((err) => {
-    if (err) {
-      return res.status(500).json({ message: 'Error logging out' });
-    }
-    res.clearCookie('connect.sid'); // Clear the cookie
+    if (err) return res.status(500).json({ message: 'Error logging out' });
+    res.clearCookie('connect.sid');
     res.status(200).json({ message: 'Logged out successfully' });
   });
 });
 
-// Get user profile
+// Get profile
 router.get('/profile', (req, res) => {
-  if (!req.session.user) {
+  if (!req.session.user)
     return res.status(401).json({ message: 'Not logged in' });
-  }
 
   User.findById(req.session.user._id)
     .then((user) => {
-      if (!user) {
-        return res.status(404).json({ message: 'User not found' });
-      }
-      res.status(200).json(user); // Send user profile data
+      if (!user) return res.status(404).json({ message: 'User not found' });
+      res.status(200).json(user);
     })
     .catch((err) => {
       console.error(err);
@@ -62,41 +76,7 @@ router.get('/profile', (req, res) => {
     });
 });
 
-// Update user profile
-// router.put('/profile', async (req, res) => {
-//   const { name, department, gradYear, email, preferredJobLocation, knownSkills, experienceInYears } = req.body;
-
-//   if (!req.session.user) {
-//     return res.status(401).json({ message: 'Please log in to update your profile' });
-//   }
-
-//   try {
-//     const updatedUser = await User.findByIdAndUpdate(
-//       req.session.user._id,  // Using the user ID from the session
-//       {
-//         name,
-//         department,
-//         gradYear,
-//         email,
-//         preferredJobLocation,
-//         knownSkills,
-//         experienceInYears,
-//       },
-//       { new: true } // Return the updated user object
-//     );
-
-//     if (!updatedUser) {
-//       return res.status(400).json({ message: 'User not found' });
-//     }
-
-//     res.status(200).json(updatedUser); // Send the updated user data back
-//   } catch (err) {
-//     console.error(err);
-//     res.status(500).json({ message: 'Error updating profile' });
-//   }
-// });
-
-
+// Update profile
 router.put('/profile', async (req, res) => {
   const {
     name,
@@ -111,26 +91,22 @@ router.put('/profile', async (req, res) => {
     pastExperience,
   } = req.body;
 
-  if (!req.session.user) {
-    return res.status(401).json({ message: 'Please log in to update your profile' });
-  }
+  if (!req.session.user)
+    return res.status(401).json({ message: 'Please log in to update profile' });
 
   try {
     const user = await User.findById(req.session.user._id);
-
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
-    }
+    if (!user) return res.status(404).json({ message: 'User not found' });
 
     // Basic fields
     user.name = name;
     user.department = department;
     user.gradYear = gradYear;
     user.email = email;
-    user.knownSkills = knownSkills;
-    user.experienceInYears = experienceInYears;
+    user.knownSkills = knownSkills || [];
+    user.experienceInYears = experienceInYears || 0;
 
-    // 🔹 Only apply job-related fields if Alumni
+    // Alumni-specific fields
     if (user.role === 'Alumni') {
       user.currentCompany = currentCompany || '';
       user.currentRole = currentRole || '';
@@ -139,7 +115,6 @@ router.put('/profile', async (req, res) => {
     }
 
     const updatedUser = await user.save();
-
     res.status(200).json(updatedUser);
   } catch (err) {
     console.error(err);
@@ -147,17 +122,39 @@ router.put('/profile', async (req, res) => {
   }
 });
 
-// Get Alumni Directory
+// ------------------ Profile Picture Upload ------------------
+
+router.post(
+  '/upload-pic',
+  upload.single('profilePic'),
+  async (req, res) => {
+    if (!req.session.user)
+      return res.status(401).json({ message: 'Not logged in' });
+
+    try {
+      const user = await User.findById(req.session.user._id);
+      if (!user) return res.status(404).json({ message: 'User not found' });
+
+      user.profilePic = req.file.filename;
+      await user.save();
+
+      res.status(200).json({ profilePic: user.profilePic });
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: 'Upload failed' });
+    }
+  }
+);
+
+// Alumni directory
 router.get('/alumni-directory', async (req, res) => {
   try {
-    // Fetch all users (alumni) from MongoDB
-    const alumni = await User.find({ role: 'Alumni' }); // Assuming 'role' field is 'alumni' for alumni users
-    if (!alumni || alumni.length === 0) {
+    const alumni = await User.find({ role: 'Alumni' });
+    if (!alumni || alumni.length === 0)
       return res.status(404).json({ message: 'No alumni found' });
-    }
-    res.status(200).json(alumni); // Send list of alumni users
-  } catch (error) {
-    console.error(error);
+    res.status(200).json(alumni);
+  } catch (err) {
+    console.error(err);
     res.status(500).json({ message: 'Failed to fetch alumni directory' });
   }
 });
