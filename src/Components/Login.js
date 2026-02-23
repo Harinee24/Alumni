@@ -138,10 +138,17 @@ const Login = () => {
   };
 
   return (
-    <div
-      className="login-page"
-      style={{ backgroundImage: `url(${campusImg})` }}
-    >
+<div
+  className="login-page"
+  style={{
+    backgroundImage: `url(${campusImg})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    minHeight: "100vh",
+    width: "100%",
+  }}
+>
       {/* NAVBAR */}
       {/* <nav className="transparent-navbar">
         <div className="nav-left">CKCET Alumni</div>
@@ -167,7 +174,7 @@ const Login = () => {
       </nav>
 
       {/* CENTER CONTENT */}
-      <div className="center-container">
+      <div className="center-container" style={{ marginTop: "20px" }}>
         <div className="login-card">
           <h1>Welcome CKCETian</h1>
           <p className="tagline">Connect • Grow • Inspire</p>

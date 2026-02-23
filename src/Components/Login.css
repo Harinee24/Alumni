@@ -33,7 +33,8 @@
 
 /* ===== CENTER SECTION ===== */
 .center-container {
-  height: 85vh;
+  padding-top: 150px;
+  height: 82vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,7 +43,7 @@
 /* ===== LOGIN CARD (PREMIUM GLASS) ===== */
 .login-card {
   width: 400px;
-  padding: 50px 40px;
+  padding: 20px 40px;
   border-radius: 25px;
 
   background: rgba(255, 255, 255, 0.15);
@@ -169,3 +170,6 @@
 .back-link:hover::before {
   margin-right: 6px;
 }
+
+
+
