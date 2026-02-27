@@ -33,7 +33,7 @@ function Donation() {
       {/* NAVBAR (Same as JobPost) */}
       <nav className="navbar">
         <div className="logo">
-          <img src="/cklogo.png" alt="logo" />
+          <img src="/cklogo.png" alt="logo" style={{width:"150px", height:"50px"}}/>
           <a href="#" onClick={navigateToDashboard} style={{ color: "white" }}>
             AlumniSphere
           </a>

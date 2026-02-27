@@ -65,7 +65,7 @@ const Login = () => {
             {/* ================= NAVBAR ================= */}
       <nav className="navbar">
         <div className="logo">
-          <img src="/cklogo.png" alt="logo" />
+          <img src="/cklogo.png" alt="logo" style={{width:"150px", height:"50px"}}/>
           <span>AlumniSphere</span>
         </div>
       </nav>
@@ -84,14 +84,14 @@ const Login = () => {
               onChange={(e) => setEmail(e.target.value)}
               required
               style={{   width: "100%",
-  padding: "12px 18px",
-  marginTop: "6px",
-  marginBottom: "15px",
-  borderRadius: "30px",
-  background: "rgba(255, 255, 255, 0.9)",
-  fontSize: "14px",
-  transition: "0.3s",
-  display: "block" }}
+                          padding: "12px 18px",
+                          marginTop: "6px",
+                          marginBottom: "15px",
+                          borderRadius: "30px",
+                          background: "rgba(255, 255, 255, 0.9)",
+                          fontSize: "14px",
+                          transition: "0.3s",
+                          display: "block" }}
             />
 
             <label>Password</label>
@@ -115,7 +115,7 @@ const Login = () => {
 
             {error && <p style={{ color: "red" }}>{error}</p>}
 
-            <button type="submit" className="login-btn">
+            <button type="submit" className="login-btn" style={{width:"100px"}}>
               LOGIN
             </button>
             <a href="#" onClick={() => navigate("/")} className="back-link">Back to home</a>

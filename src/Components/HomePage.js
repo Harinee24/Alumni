@@ -204,7 +204,7 @@ function HomePage() {
       {/* ================= NAVBAR ================= */}
       <nav className="navbar">
         <div className="logo">
-          <img src="/cklogo.png" alt="logo" />
+          <img src="/cklogo.png" alt="logo" style={{width:"150px", height:"50px"}} />
           <span>AlumniSphere</span>
         </div>
 

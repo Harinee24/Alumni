@@ -275,13 +275,14 @@ const Discussion = () => {
   const navigateToDashboard = () => navigate('/dashboard');
   const navigateToEvent = () => navigate('/event-portal');
   const navigateToDonation = () => navigate('/donation');
+  const navigateToDirectory = () => navigate('/alumni-directory');
 
   return (
     <div className="page-wrapper">
       {/* NAVBAR */}
       <nav className="navbar">
         <div className="logo">
-          <img src="/cklogo.png" alt="logo" />
+          <img src="/cklogo.png" alt="logo" style={{width:"150px", height:"50px"}} />
           <a href="/dashboard">AlumniSphere</a>
         </div>
 
@@ -289,6 +290,7 @@ const Discussion = () => {
           <a href="#">Discussion Forum</a>
           <a href="#" onClick={navigateToJobPost}>Job Portal</a>
           <a href="#" onClick={navigateToEvent}>Events</a>
+          <a href="#" onClick={navigateToDirectory}>Alumni Directory</a>
           <a href="#" onClick={navigateToDonation}>Giving</a>
         </div>
 
@@ -310,7 +312,7 @@ const Discussion = () => {
 
       {/* PAGE TITLE */}
       <div className="job-container">
-        <h2 className="title">Discussion Forum</h2>
+        <h2 className="title">DISCUSSION FORUM</h2>
 
         {/* DISCUSSION CARD */}
         <div className="form-card messages">
