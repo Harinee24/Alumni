@@ -106,6 +106,7 @@ function JobPost() {
       experience,
       lastDate,
       applyLink,
+      postedByEmail: user.email
     };
 
     try {
@@ -362,3 +363,5 @@ function JobPost() {
 }
 
 export default JobPost;
+
+
