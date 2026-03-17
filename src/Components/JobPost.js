@@ -128,6 +128,7 @@ function JobPost() {
 
       fetchJobs();
     } catch (error) {
+      console.error("FULL ERROR:", error.response?.data || error.message);
       setError("Failed to post job");
     } finally {
       setLoading(false);

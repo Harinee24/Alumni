@@ -14,7 +14,7 @@ const isAuthenticated = (req, res, next) => {
 // POST: Create New Job
 // =====================
 router.post('/', isAuthenticated, async (req, res) => {
-  const { title, company, skills, stipend, experience, lastDate } = req.body;
+  const { title, company, skills, stipend, experience, lastDate, applyLink } = req.body;
 
   // Validate required fields
   if (!title || !company || !skills || !stipend || !lastDate) {
